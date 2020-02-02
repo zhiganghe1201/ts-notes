@@ -1,0 +1,17 @@
+{
+	// 提供配置文件后执行编译命令时tsc后面不能加文件名了   直接tsc    加文件名会忽略配置文件
+	"compilerOptions": {
+		"target": "es2016", // 配置编译目标代码的版本标准 默认ES3
+		"module": "commonjs", // 配置编译目标使用的模块化的标准  es2015|es6
+		"lib": ["es2016"], // @types 库 @types/node ts的运行环境 默认有dom环境   没有NODE环境
+		"outDir": "./dist",
+		"strictNullChecks": true, // 严格的空类型检查  null和undefined只可赋值给本身
+		"removeComments": true, // 编译结果中去掉注释
+		"noImplicitUseStrict": true, // 编译结果中不开启 use strict
+		"esModuleInterop": true, // 启用es模块化交互与非es模块导出；
+		"noEmitOnError": true, // 书写错误时不编译
+	},
+	"include": ["./src"], // 编译的目标目录
+	// "files": [],
+
+}
