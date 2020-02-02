@@ -130,7 +130,14 @@ sum(1, 3); // 普通导出 可以智能提示， 快速修复； 默认导出（
 
 import { readFileSync } from 'fs'; // fs中导出: module.exports = {}； 不是用TS写的；
 
-readFileSync('./');
+// readFileSync('./');
 
 import path from 'path';
 import fs from 'fs';
+
+// 扑克牌 模块化 改写
+import { createDeck, printDeck } from './pocker';
+
+const deck = createDeck();
+
+printDeck(deck);
