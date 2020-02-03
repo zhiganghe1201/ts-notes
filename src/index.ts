@@ -141,3 +141,8 @@ import { createDeck, printDeck } from './pocker';
 const deck = createDeck();
 
 printDeck(deck);
+
+
+// 
+
+import './interface'
