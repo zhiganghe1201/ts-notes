@@ -53,10 +53,10 @@ export function printDeck(deck: Deck) {
 	deck.forEach((card, i) => {
 		// let str = card.color + card.mark;
 		result += card.getString() + '\t';
-		if((i + 1) % 4 === 0) {
+		if((i + 1) % 6 === 0) {
 			result += '\n';
 		}
 	})
-	console.log(result);
+	console.log(result, 'class Pocker');
 }
 

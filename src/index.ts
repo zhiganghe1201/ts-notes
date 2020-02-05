@@ -146,3 +146,13 @@ printDeck(deck);
 // 
 
 import './interface'
+import './class'
+
+
+
+// 
+import { Deck } from "./deck";
+
+const deck1 = new Deck();
+
+deck1.print()

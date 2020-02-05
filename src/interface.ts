@@ -114,7 +114,7 @@ let duck1: Duck = { // 直接赋值时采用更加严格的类型检查   必须
 	sound: "嘎嘎嘎",
 	swin() {
 
-	}
+	},
 }
 
 // interface ResponseUser {
@@ -130,3 +130,26 @@ let a:aa = {
 	// a: 'sdsd',
 	age: 23
 }
+
+let arr1: readonly number[] = [1,2,3,4,5];
+
+let arr2: ReadonlyArray<number> = [12,3,4,5]; // 在react中 <>表示组件
+
+
+
+interface SquareConfig {
+    color?: string;
+    width?: number;
+}
+
+function createSquare(config: SquareConfig): { color: string; area: number } {
+	return {
+		color: 'sd',
+		area: 90
+	}
+    // ...
+}
+
+let obj = { colour: "red", width: 100 }
+
+let mySquare = createSquare({ colour: "red", width: 100 } as SquareConfig);
