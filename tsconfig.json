@@ -10,7 +10,7 @@
 		"noImplicitUseStrict": true, // 编译结果中不开启 use strict
 		"esModuleInterop": true, // 启用es模块化交互与非es模块导出；
 		"noEmitOnError": true, // 书写错误时不编译
-		"strictPropertyInitialization": true, // 严格的属性初始化， 属性一定有值
+		// "strictPropertyInitialization": true, // 严格的属性初始化， 属性一定有值
 	},
 	"include": ["./src"], // 编译的目标目录
 	// "files": [],
