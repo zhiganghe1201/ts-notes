@@ -52,7 +52,7 @@ console.log(howard.getElevatorPitch());
 
 
 class Person3 {
-	readonly id: number;
+	readonly id: number = 99;
 }
 
 
@@ -262,7 +262,7 @@ function printLength<T>(arr: T[]): T[] {
 	
 }
 
-console.log(printLength([99]), '---');
+console.log(printLength([99]));
 
 
 
@@ -356,3 +356,71 @@ let tom: Animal = new Horse("Tommy the Palomino");
 console.log(sam.move(), '--sam---');
 
 tom.move(34);
+
+
+// 静态属性
+class User {
+	static users: User[] = [];  // 用来存取 已登录的用户
+
+	constructor(
+		public loginId: string,
+		public loginPwd: string,
+		public name: string,
+		public age: number
+
+	) {
+		User.users.push(this);
+
+	}
+
+	static login(id: string, pwd: string): User | undefined {
+		return User.users.find(u => u.loginId === id && u.loginPwd === pwd);
+	}
+}
+
+// 单例模式
+class Board {
+	width: number = 500;
+	height: number = 700;
+
+	init() {
+		console.log('初始化棋盘')
+	}
+
+   // 构造函数私有化 在类外面不可实例化
+	private constructor() {} 
+
+	// private static _board?: Board;
+
+	// static createBoard(): Board {
+	// 	if(this._board) {
+	// 		return this._board;
+	// 	}
+
+	// 	this._board = new Board();
+	// 	return this._board;
+	// }
+
+	static readonly singleBoard: Board = new Board() // 缺点 一开始就初始化实例， 不可以添加复杂的操作；
+}
+
+// const b = Board.createBoard()
+// const b2 = Board.createBoard()
+// console.log(b === b2, '-=-=-=');
+
+
+const b1 = Board.singleBoard; // 一开始就初始化实例
+
+const b2 = Board.singleBoard;
+
+console.log(b1 === b2);
+
+
+
+setTimeout(()=> {
+
+}, 9)
+
+setInterval(() => {
+
+}, 999)

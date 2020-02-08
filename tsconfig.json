@@ -1,18 +1,38 @@
 {
-	// 提供配置文件后执行编译命令时tsc后面不能加文件名了   直接tsc    加文件名会忽略配置文件
+	// 提供配置文件后执行编译命令时tsc后面不能加文件名了   直接tsc    加文件名会忽略配置文件  这是node环境
 	"compilerOptions": {
-		"target": "es2016", // 配置编译目标代码的版本标准 默认ES3
-		"module": "commonjs", // 配置编译目标使用的模块化的标准  es2015|es6
+		"target": "es2016", // 配置编译目标代码的版本标准 默认ES3  esnext
+		"module": "commonjs", // 配置编译目标使用的模块化的标准  es2015|es6  esnext允许动态导入 
 		"lib": ["es2016"], // @types 库 @types/node ts的运行环境 默认有dom环境   没有NODE环境
 		"outDir": "./dist",
 		"strictNullChecks": true, // 严格的空类型检查  null和undefined只可赋值给本身
 		"removeComments": true, // 编译结果中去掉注释
 		"noImplicitUseStrict": true, // 编译结果中不开启 use strict
-		"esModuleInterop": true, // 启用es模块化交互与非es模块导出；
+		"esModuleInterop": true, // 启用es6模块化交互与非es模块导出；  module.exports  默认导入报错
 		"noEmitOnError": true, // 书写错误时不编译
-		// "strictPropertyInitialization": true, // 严格的属性初始化， 属性一定有值
+		"strictPropertyInitialization": true, // 严格的属性初始化， 属性一定有值
+
+		// "allowJs": true // 是否允许 ts 代码和 js 代码交互
+		// "strict": true  // 所有的严格检查
+		// "moduleResolution": "node",//  模块的解析方式   路径 './'
+		// "resolveJsonModule": true // 是否允许 把Json 导入当做一个文件来使用
+		// "isolatedModules": true, // 是不是把每一个文件 当做一个模块   不能有空文件  必须导出一个 
+		// "noEmit": true, // 不生成 js文件  直接编译
+		"jsx": "preserve", // 如何解析jsx
+
+		"typeRoots": ["node_modules/@types", "./types"], // 手动配置声明文件的位置  权重最高 
+		"declaration": true, // 编译后自动生成声明文件 .d.ts
+		"sourceMap": true, // 源码地图  一一对应， 找错
+
+
 	},
-	"include": ["./src"], // 编译的目标目录
+	"include": [
+		"src"
+		], // 编译的目标目录
 	// "files": [],
+
+	// "exclude": []
+
+
 
 }

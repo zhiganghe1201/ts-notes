@@ -156,3 +156,26 @@ import { Deck } from "./deck";
 const deck1 = new Deck();
 
 deck1.print()
+
+
+
+
+import './dictionary'
+
+enum Num {
+	a = 1,
+	b = 2
+}
+
+enum Str {
+	c = '1',
+	d = '2'
+}
+let aa1: Num = Num.a;
+
+console.log(Num);
+
+
+import _ from 'lodash'
+_.chunk
+

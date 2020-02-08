@@ -20,3 +20,15 @@ export enum Mark {
 	twelve = 'Q',
 	king = 'K'
 }
+
+
+
+
+enum Level {
+	level1 = 1,
+	level2,
+	level3
+}
+
+
+
