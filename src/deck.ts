@@ -19,7 +19,8 @@ export class Deck {
 					color: c,
 					mark: m,
 					getString() {
-						return this.color + this.mark
+						return 'ss'
+						// return this.color + this.mark
 					}
 				} as Card); // 类型断言 设置为 指定类型；
 			}

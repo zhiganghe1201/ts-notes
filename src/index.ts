@@ -176,6 +176,7 @@ let aa1: Num = Num.a;
 console.log(Num);
 
 
-import _ from 'lodash'
-_.chunk
+import './animal/index'
 
+
+import './decorator/index'

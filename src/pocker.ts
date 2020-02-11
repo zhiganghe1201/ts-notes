@@ -22,7 +22,8 @@ export function createDeck(): Deck {
 				color: c,
 				mark: m,
 				getString() {
-					return this.color + this.mark
+					// return this.color + this.mark
+					return 'sd'
 				}
 			} as Card); // 类型断言 设置为 指定类型；
 		}

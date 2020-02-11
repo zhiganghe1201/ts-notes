@@ -187,7 +187,7 @@ interface callback8<T> {
 export class ArrayHelper {
 
 
-	getRandom(min, max) {
+	getRandom(min: number, max: number) {
 		const dec = max - min;
 
 		return Math.floor(Math.random() * dec + min)
@@ -424,3 +424,19 @@ setTimeout(()=> {
 setInterval(() => {
 
 }, 999)
+
+interface IUser {
+	name: string,
+	age: number,
+	sayHello(this: IUser): void
+}
+
+
+const u: IUser = {
+	name: 'sss',
+	age: 9,
+	sayHello(){
+		console.log(this);
+		
+	}
+}

@@ -1,3 +1,5 @@
+import { ucs2 } from "punycode";
+
 export  interface User {
 	name: string,
 	age: number,
@@ -54,19 +56,19 @@ interface AA {
 	T11: boolean
 }
 
-interface B extends A {
-	T2: number
-}
+// interface B extends A {
+// 	T2: number
+// }
 
-interface c extends A, AA { 
-	T3: number
-}
+// interface c extends A, AA { 
+// 	T3: number
+// }
 
-// 接口组合 
-let cc: B = {
-	T1: 'sdsd',
-	T2: 12
-}
+// // 接口组合 
+// let cc: B = {
+// 	T1: 'sdsd',
+// 	T2: 12
+// }
 
 // ---------------------
 
@@ -153,3 +155,73 @@ function createSquare(config: SquareConfig): { color: string; area: number } {
 let obj = { colour: "red", width: 100 }
 
 let mySquare = createSquare({ colour: "red", width: 100 } as SquareConfig);
+
+
+const methodName = 'sayHello'
+class User1 {
+	// 属性名一般都是字符串： 成员属性对所有有效
+	[propName: string]: any;
+
+
+	constructor(
+		public name: string,
+		public age: number
+	) {
+
+	}
+
+	[methodName]() {
+		console.log('a-----a');
+		
+	}
+}
+
+const u1 = new User1('aa', 3)
+
+
+u1[methodName]()
+
+console.log(u1['pid']);
+
+u1[methodName]
+
+function aa(a: string) {
+
+}
+
+
+class MyArr {
+	[index: number]: number;
+
+	0 = 1;
+	1 = 2;
+	3 = 33
+}
+
+console.log(new MyArr());
+
+
+const arr3: number[] = [];
+// arr3[0] = 1;
+// arr3['0'] = 5;
+
+console.log(arr3[0]);
+
+// 在JS中， 所有的成员名本质上， 都是字符串， 如果使用数字作为成员名， 会自动转换为字符串
+
+class A {
+	// [prop: number] : string
+	[prop: string]: string
+}
+
+const a1 = new A()
+a1[1] = '9'
+
+
+function get<T extends object, K extends keyof T>(o: T, name: K): T[K] {
+	return o[name]
+}
+
+let xx = get({ a: 12, b: '32323'}, 'b')
+console.log(xx, '---xxxx---');
+

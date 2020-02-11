@@ -10,7 +10,7 @@
 		"noImplicitUseStrict": true, // 编译结果中不开启 use strict
 		"esModuleInterop": true, // 启用es6模块化交互与非es模块导出；  module.exports  默认导入报错
 		"noEmitOnError": true, // 书写错误时不编译
-		"strictPropertyInitialization": true, // 严格的属性初始化， 属性一定有值
+		// "strictPropertyInitialization": true, // 严格的属性初始化， 属性一定有值
 
 		// "allowJs": true // 是否允许 ts 代码和 js 代码交互
 		// "strict": true  // 所有的严格检查
@@ -21,8 +21,11 @@
 		"jsx": "preserve", // 如何解析jsx
 
 		"typeRoots": ["node_modules/@types", "./types"], // 手动配置声明文件的位置  权重最高 
-		"declaration": true, // 编译后自动生成声明文件 .d.ts
-		"sourceMap": true, // 源码地图  一一对应， 找错
+		// "declaration": true, // 编译后自动生成声明文件 .d.ts
+		// "sourceMap": true, // 源码地图  一一对应， 找错
+		"noImplicitAny": true, // 开启对隐式的any检查
+		"noImplicitThis": true, // 不允许this隐式的指向any
+		"experimentalDecorators": true, // 在TS中使用装饰器
 
 
 	},
