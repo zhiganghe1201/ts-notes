@@ -35,7 +35,7 @@ class Person {
 	}
 }
 
-// new Person()
+// new Person() // 
 class Employee extends Person {
 	constructor(private department: string, name: string) {
 		super(name);
@@ -415,28 +415,21 @@ const b2 = Board.singleBoard;
 
 console.log(b1 === b2);
 
+interface Speakable {
+	name: string;
 
+	speak(words: string): void
+}
 
-setTimeout(()=> {
-
-}, 9)
-
-setInterval(() => {
-
-}, 999)
-
-interface IUser {
-	name: string,
-	age: number,
-	sayHello(this: IUser): void
+interface Speakable2 {
+	age: number
 }
 
 
-const u: IUser = {
-	name: 'sss',
-	age: 9,
-	sayHello(){
-		console.log(this);
-		
+class Dog implements Speakable, Speakable2 {
+	name: string;
+	age = 28;
+	speak(words: string) {
+
 	}
 }

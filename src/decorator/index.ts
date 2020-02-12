@@ -1,4 +1,4 @@
-
+import './test'
 
 class User6 {
 	// @require
@@ -139,11 +139,7 @@ a1.method1()
 
 function m() {
 	return function(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
-		descriptor
 
-		descriptor
-
-		descriptor
 	}
 }
 
@@ -155,14 +151,3 @@ class CC {
 	}
 }
 
-
-let aaa: [string, number] = ['s', 9];
-
-aaa.push('0');
-aaa.push('0');
-aaa.push('0');
-aaa.push('0');
-
-console.log(aaa);
-
-console.log(aaa[1]);

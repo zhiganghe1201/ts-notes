@@ -7,6 +7,9 @@ export  interface User {
 	sayHello(): void
 };
 
+
+
+
 // 这里接口和类型别名来约束对象没什么区别
 
 // type User = {
@@ -48,20 +51,28 @@ console.log(result);
 
 
 
-interface A {
-	T1: string
+interface Control2 {
+	t1: string
 }
 
-interface AA {
-	T11: boolean
+interface Control1 {
+	t11: boolean
 }
 
-// interface B extends A {
-// 	T2: number
-// }
+interface BB extends Control2, Control1 {
+	name: number,
+	age: string
+}
+
+let some: BB = {
+	t1: 'sd',
+	t11: true,
+	name: 9,
+	age: '99'
+}
 
 // interface c extends A, AA { 
-// 	T3: number
+// 	t4: number
 // }
 
 // // 接口组合 
@@ -112,7 +123,7 @@ let person = {
 // 声明一个变量， 约束为一个鸭子但是可以把人赋值给他； 
 let duck: Duck = person;
 
-let duck1: Duck = { // 直接赋值时采用更加严格的类型检查   必须完全一致；
+let duck1: Duck = { // 对象字面量直接赋值时采用更加严格的类型检查   必须完全一致；
 	sound: "嘎嘎嘎",
 	swin() {
 
@@ -153,9 +164,11 @@ function createSquare(config: SquareConfig): { color: string; area: number } {
 }
 
 let obj = { colour: "red", width: 100 }
-
+							// 写错了  对象字面量采用更加严格的类型检查  可以采用类型断言绕过检查
 let mySquare = createSquare({ colour: "red", width: 100 } as SquareConfig);
+createSquare(obj)
 
+// ------------
 
 const methodName = 'sayHello'
 class User1 {
@@ -202,10 +215,11 @@ console.log(new MyArr());
 
 
 const arr3: number[] = [];
-// arr3[0] = 1;
-// arr3['0'] = 5;
+arr3[0] = 1;
+arr3['0'] = 5;
 
-console.log(arr3[0]);
+
+console.log(arr3[0], 'arr3[0]'); // --> 5
 
 // 在JS中， 所有的成员名本质上， 都是字符串， 如果使用数字作为成员名， 会自动转换为字符串
 
@@ -225,3 +239,58 @@ function get<T extends object, K extends keyof T>(o: T, name: K): T[K] {
 let xx = get({ a: 12, b: '32323'}, 'b')
 console.log(xx, '---xxxx---');
 
+
+
+
+class Control {
+    state: any;
+}
+
+interface SelectableControl extends Control {
+    select(): void;
+}
+
+class Button extends Control implements SelectableControl {
+    select() { }
+}
+
+class TextBox extends Control {
+    // select() { }
+}
+
+// 错误：“Image”类型缺少“state”属性。
+class Image implements SelectableControl {
+	select() { };
+	state =''
+}
+
+class Location {
+
+}
+
+class A1 {
+	private a1: string = 'sss';
+
+}
+class B1 {
+	b1: string;
+}
+
+interface C extends A1, B1 {}
+
+
+class CC extends A1 implements C {
+	// a1: string;
+	b1!: string;
+
+	constructor() {
+		super()
+		this.b1 = ''
+	}
+
+}
+
+const cc = new CC();
+
+let e = {name: 'ss'}
+let s = e.name

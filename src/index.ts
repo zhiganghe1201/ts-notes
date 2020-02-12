@@ -44,7 +44,9 @@ let aa: 'AA';
 aa = 'AA'
 
 let tu: [string, number]; // tu只能赋值为一个长度为2的数组并且第一位必须是字符串，第二位必须是数字类型；
-tu = ['3', 3]
+// tu = ['3', 3]
+tu = ['s', 0];
+
 
 // 类型别名   防止重复写约束代码；
 
@@ -180,3 +182,18 @@ import './animal/index'
 
 
 import './decorator/index'
+
+import './enums'
+
+
+
+type Keys = 'a' | 'b';
+
+type Obj = {
+	[p in Keys]: any
+}
+
+let cs: Obj = {
+	a: 'sds',
+	b: 'd'
+}
