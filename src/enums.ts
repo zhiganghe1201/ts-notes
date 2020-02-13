@@ -88,3 +88,31 @@ interface User {
 	  age: 9,
 	  name: '9'
   }
+  
+
+  const isString = (val: any): boolean => typeof val === 'string';
+
+  interface obj {
+	  [prop: string]: string;
+	//   name: string;
+  }
+
+  let cc: null | obj = Math.random() < .9 ? {} : {name: 'sd'};
+
+  let dd = cc?.name;
+//   let dd1 = cc!.name;
+
+  console.log(dd, "dd1", 'dd-dd1');
+  
+
+  interface User {
+	name: string;
+	age: number
+}
+
+function getName(obj?: User) {
+	return obj?.name
+}
+
+console.log(getName(), '-------');
+ 
