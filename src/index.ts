@@ -1,82 +1,4 @@
-// let a:string;
-// a = '23232';
-// function add (b: number, c: number): number {
-// 	return b + c;
-// }
 
-
-// add(2, 4)
-
-// let num: number[] = [12,34,2];
-// let obj: object;
-// obj = {
-// 	1: 'sd'
-// }
-
-// function printValues(obj: object): any[] {
-// 	return Object.values(obj)
-// }
-
-// printValues({a: 'ew', b: 'dsd'})
-
-// console.log('ssdsdsdsdasd是的是的所');
-
-
-// let name: string | undefined;
-// if(typeof name === 'string') {
-// 	// name.
-// }
-
-
-// function throwError(msg: string):never {
-// 	throw new Error(msg)
-// 	console.log('sd');
-	
-// }
-
-// function alwaysDoSomething():never {
-// 	while(true) {
-// 		// ...
-// 	}
-// }
-
-// let aa: 'AA';
-// aa = 'AA'
-
-// let tu: [string, number]; // tu只能赋值为一个长度为2的数组并且第一位必须是字符串，第二位必须是数字类型；
-// // tu = ['3', 3]
-// tu = ['s', 0];
-
-
-// // 类型别名   防止重复写约束代码；
-
-// type User = {
-// 	name: string,
-// 	age: number,
-// 	gender: '男' | '女'
-// }
-
-// let u: User;
-
-// function getUser():User[] {
-// 	return [];
-// }
-
-// // 枚举
-// enum Gender {
-// 	male = '男', // 逻辑变量、真实的值；
-// 	female = '女'
-// }
-
-// let gender: Gender;
-
-// gender = Gender.female
-
-
-// enum Level {
-// 	level1 = 1,
-// 	level2 = 2
-// }
 
 // // 位枚举  两个数字换算成二进制后进行的运算；
 // enum Permission {
@@ -199,48 +121,42 @@
 // }
 
 
-@testable
+// @testable
 
-class MyTestableClass {
+// class MyTestableClass {
 
- // ...
+//  // ...
 
-}
+// }
 
-function testable(target) {
+// function testable(target) {
 
- target.isTestable = true;
- console.log(target);
+//  target.isTestable = true;
+//  console.log(target);
  
 
-}
+// }
 
-console.log(MyTestableClass);
-
-
-class Animal {
-	name: string;
-}
-
-class Dog extends Animal {
-	breed: string;
-}
-
-// TypeScript支持两种索引签名：字符串和数字。 
-// 可以同时使用两种类型的索引，但是数字索引的返回值必须是字符串索引返回值类型的子类型。
-interface NotOky {
-	[x: number]: Dog, // 数字索引
-	[x: string]: Animal // 字符串索引
-}
+// console.log(MyTestableClass);
 
 
+// class Animal {
+// 	name: string;
+// }
 
-function identity<T>(arg: T[]): T[] {
-	console.log(arg.length);
-	
-	return arg
-}
-identity([1])
+// class Dog extends Animal {
+// 	breed: string;
+// }
+
+// // TypeScript支持两种索引签名：字符串和数字。 
+// // 可以同时使用两种类型的索引，但是数字索引的返回值必须是字符串索引返回值类型的子类型。
+// interface NotOky {
+// 	[x: number]: Dog, // 数字索引
+// 	[x: string]: Animal // 字符串索引
+// }
+
+
+
 
 
 let my: <T>(arg: T) => T
@@ -249,3 +165,67 @@ let my: <T>(arg: T) => T
 interface Demo {
 	<T>(arg: T): T
 }
+
+interface Identity<V, M> {
+	value: V, 
+	message: M
+}
+function identity<T, U>(value: T, message: U): Identity<T, U> {
+	let identities: Identity<T, U> = {
+		value,
+		message
+	}
+
+	return identities;
+
+	
+}
+
+
+console.log(identity(23, '890'));
+
+
+interface GenericInterface<U> {
+	value: U;
+	getIdentity: () => U;
+	say: () => U
+}
+
+
+
+class IdeneityClass<T> implements GenericInterface<T> {
+
+	value: T;
+	say: () => T;
+	constructor(value: T) {
+		this.value = value;
+		this.say = () => value;
+	}
+
+	getIdentity(): T {
+		return this.value
+	}
+}
+
+const id = new IdeneityClass(89);
+
+
+interface Length {
+	length: number
+}
+function getLength<T extends Length>(value: T): T {
+	console.log(value.length);
+	
+		return value
+}
+
+getLength({name: 2323, length: 88})
+
+interface Person {
+	name: string;
+	age: number;
+	location: string;
+  }
+  
+  type k1 = keyof Person
+  
