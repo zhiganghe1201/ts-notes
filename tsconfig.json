@@ -20,17 +20,22 @@
 		// "noEmit": true, // 不生成 js文件  直接编译
 		"jsx": "preserve", // 如何解析jsx
 
-		"typeRoots": ["node_modules/@types", "./types"], // 手动配置声明文件的位置  权重最高 
 		// "declaration": true, // 编译后自动生成声明文件 .d.ts
 		// "sourceMap": true, // 源码地图  一一对应， 找错
 		// "noImplicitAny": true, // 开启对隐式的any检查
 		// "noImplicitThis": true, // 不允许this隐式的指向any
-		"experimentalDecorators": true, // 在TS中使用装饰器
+		"experimentalDecorators": true, // 在TS中使用装饰器,
+		"declaration": true, // 生成声明文件
 
+
+		"typeRoots": [
+			"node_modules/@types",
+			"./types"
+			], // 手动配置声明文件的位置  权重最高 ts-node 可能会出现的报错
 
 	},
 	"include": [
-		"src"
+		"./src"
 		], // 编译的目标目录
 	// "files": [], // 要编译的文件的名称
 

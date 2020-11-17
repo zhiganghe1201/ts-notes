@@ -61,3 +61,17 @@ export function printDeck(deck: Deck) {
 	console.log(result, 'class Pocker');
 }
 
+
+
+
+type Partial<T> = {
+	[p in keyof T]?: T[p]
+}
+
+
+interface Feature {
+	name: string,
+	prince: string
+}
+
+type B = Partial<Feature>
