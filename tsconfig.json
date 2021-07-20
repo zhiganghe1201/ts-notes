@@ -1,9 +1,9 @@
 {
 	// 提供配置文件后执行编译命令时tsc后面不能加文件名了   直接tsc    加文件名会忽略配置文件  这是node环境
 	"compilerOptions": {
-		"target": "es2016", // 配置编译目标代码的版本标准 默认ES3  esnext
+		"target": "es2016", // 配置编译目标代码的版本标准 默认ES3  esnext   es2016 是 es7  ES6 是2015年出的
 		"module": "commonjs", // 配置编译目标使用的模块化的标准  es2015|es6  esnext允许动态导入 
-		"lib": ["es2016"], // @types 库 @types/node ts的运行环境 默认有dom环境   没有NODE环境
+		"lib": ["es2016"], // @types 库 @types/node ts的运行全局环境 默认有dom环境   没有NODE环境
 		"outDir": "./dist",
 		"strictNullChecks": true, // 严格的空类型检查  null和undefined只可赋值给本身
 		"removeComments": true, // 编译结果中去掉注释
@@ -25,7 +25,7 @@
 		// "noImplicitAny": true, // 开启对隐式的any检查
 		// "noImplicitThis": true, // 不允许this隐式的指向any
 		"experimentalDecorators": true, // 在TS中使用装饰器,
-		"declaration": true, // 生成声明文件
+		"declaration": false, // 生成声明文件
 
 
 		"typeRoots": [
@@ -37,7 +37,7 @@
 	"include": [
 		"./src"
 		], // 编译的目标目录
-	// "files": [], // 要编译的文件的名称
+	// "files": ["./src/index.ts"], // 要编译的文件的名称, 入口文件，编译依赖相关的文件
 
 	// "exclude": [] 设置无需进行编译的文件，支持路径模式匹配
 

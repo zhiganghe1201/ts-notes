@@ -159,77 +159,103 @@
 
 
 
-let my: <T>(arg: T) => T
+// let my: <T>(arg: T) => T
 
 
-interface Demo {
-	<T>(arg: T): T
-}
+// interface Demo {
+// 	<T>(arg: T): T
+// }
 
-interface Identity<V, M> {
-	value: V, 
-	message: M
-}
-function identity<T, U>(value: T, message: U): Identity<T, U> {
-	let identities: Identity<T, U> = {
-		value,
-		message
+// interface Identity<V, M> {
+// 	value: V, 
+// 	message: M
+// }
+// function identity<T, U>(value: T, message: U): Identity<T, U> {
+// 	let identities: Identity<T, U> = {
+// 		value,
+// 		message
+// 	}
+
+// 	return identities;
+
+	
+// }
+
+
+// console.log(identity(23, '890'));
+
+
+// interface GenericInterface<U> {
+// 	value: U;
+// 	getIdentity: () => U;
+// 	say: () => U
+// }
+
+
+
+// class IdeneityClass<T> implements GenericInterface<T> {
+
+// 	value: T;
+// 	say: () => T;
+// 	constructor(value: T) {
+// 		this.value = value;
+// 		this.say = () => value;
+// 	}
+
+// 	getIdentity(): T {
+// 		return this.value
+// 	}
+// }
+
+// const id = new IdeneityClass(89);
+
+
+// interface Length {
+// 	length: number
+// }
+// function getLength<T extends Length>(value: T): T {
+// 	console.log(value.length);
+	
+// 		return value
+// }
+
+// getLength({name: 2323, length: 88})
+
+// interface Person {
+// 	name: string;
+// 	age: number;
+// 	location: string;
+//   }
+  
+//   type k1 = keyof Person
+  
+
+// import sum from './types/test';
+
+// sum(9, 0)
+
+class Singleton {
+	private static singleton: Singleton;
+	private constructor() {}
+
+	public static getInstance(): Singleton {
+		if(!Singleton.singleton) {
+			Singleton.singleton = new Singleton()
+		}
+		return Singleton.singleton;
 	}
+}
 
-	return identities;
 
+function show(): void {
+	const singleton1 = Singleton.getInstance();
+	const singleton2 = Singleton.getInstance();
+
+	if(singleton1 === singleton2) {
+		console.log('single');
+		
+	}
 	
 }
 
-
-console.log(identity(23, '890'));
-
-
-interface GenericInterface<U> {
-	value: U;
-	getIdentity: () => U;
-	say: () => U
-}
-
-
-
-class IdeneityClass<T> implements GenericInterface<T> {
-
-	value: T;
-	say: () => T;
-	constructor(value: T) {
-		this.value = value;
-		this.say = () => value;
-	}
-
-	getIdentity(): T {
-		return this.value
-	}
-}
-
-const id = new IdeneityClass(89);
-
-
-interface Length {
-	length: number
-}
-function getLength<T extends Length>(value: T): T {
-	console.log(value.length);
-	
-		return value
-}
-
-getLength({name: 2323, length: 88})
-
-interface Person {
-	name: string;
-	age: number;
-	location: string;
-  }
-  
-  type k1 = keyof Person
-  
-
-import sum from './types/test';
-
-sum(9, 0)
+show()
